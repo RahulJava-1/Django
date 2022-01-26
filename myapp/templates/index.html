@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <style>
+        table{
+        box-shadow:5px 5px 30px red;
+        }
+        tr td{
+        background-color:velvet;
+        }
+        ul
+{
+list-style-type:none;
+}
+ ul li
+{
+display:inline;
+padding-top:18px;
+padding-left:20px;
+padding-bottom:15px;
+padding-right:20px;
+background-color:black;
+border-radius:10px 10px;
+}
+ul li a
+{
+color:white;
+text-decoration:none;
+}
+
+ul li:hover
+{
+//background:-webkit-radial-gradient(red 30%,black 60%);
+padding-left:25px;
+padding-right:25px;
+padding-bottom:18px;
+padding-top:20px;
+opacity:0.8;
+}
+td{
+font-size:18px;
+text-align:center;
+font-family:consolas;
+}
+h1{
+font-family:algerian;
+}
+    </style>
+</head>
+<body>
+<center>
+<h1>Todo List</h1>
+    <ul>
+        <li>
+            <a href="{% url 'form' %}"> Add In List </a>
+        </li>
+    </ul>
+
+
+<hr/>
+<table style="background-color:gray;border:none;padding:10px;" width="100%">
+    <tr style="color: blue; font-size:25px;font-family:consolas;" >
+        <th>Id</th>
+        <th> Title </th>
+        <th> Description </th>
+        <th>Delete</th>
+    </tr>
+    {% for i in item %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.description}}</td>
+        <td>
+            <center>
+            <ul>
+            <li>
+               <a href="{% url 'delete' id=i.id %}">Delete</a>
+            </li>
+            </ul>
+                </center>
+            </td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+</body>
+</html>

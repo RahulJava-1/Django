@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Form</title>
+    <style>
+    #main{
+    height:800px;
+    width:100%;
+    border:1px solid white;
+    }
+    #head{
+    height:200px;
+    width:100%;
+    border:1px solid pink;
+    background-color:pink;
+    }
+    #card{
+    height:100px;
+    width:50%;
+    margin-top:60px;
+    border:1px solid red;
+    box-shadow: 5px 5px 25px red;
+    font-family:algerian;
+     }
+     #p2{
+     height:300px;
+     width:50%;
+     border: 1px solid gray;
+     margin-top:20px;
+     background-color:gray;
+     }
+     #p3{
+     height: 220px;
+     width:50%;
+     border:1px solid white;
+     background-color:gray;
+     margin-top:7%;
+     box-shadow:5px 5px 25px white;
+     }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="head">
+            <center>
+            <div id="card">
+            <h1> Todo Form </h1>
+            </center>
+        </div>
+    <center>
+    <div id="p2">
+        <div id="p3">
+    <form action="{% url 'add' %}" method="post" style="margin-top:10px;">
+            {% csrf_token %}
+            <span style="font-family:consolas;font-size:20px;">Enter Title :</span><input type="text" name="title" placeholder="Enter menu title" style="font-family:consolas;font-size:20px;" required/>
+            <br><br>
+        <span style="font-family:consolas;font-size:20px;">Enter Description : </span><textarea style="font-family:consolas;font-size:20px;" placeholder="Description" name="description" required></textarea>
+            <br><br>
+
+            <input type="submit" value="add" name="add" style="font-size:20px;height:30px;width:30%;background-color:blue;color:gray;border-radius:10px;">
+        </form>
+    </center>
+    </div>
+    </div>
+</div>
+</body>
+</html>
